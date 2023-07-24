@@ -22,9 +22,9 @@ class Solution {
         guard let root = root else {
             return true
         }
-        if root.val <= min || root.val >= max {
+        if root.val < min || root.val > max {
             return false
         }
-        return isValidBSTHelper(root.left, min, root.val) && isValidBSTHelper(root.right, root.val, max)
+        return isValidBSTHelper(root.left, min, root.val - 1) && isValidBSTHelper(root.right, root.val + 1, max)
     }
 }
