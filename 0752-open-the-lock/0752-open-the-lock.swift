@@ -24,16 +24,15 @@ class Solution {
         for i in 0..<currentCombination.count {
             var arr = currentCombination
             let currentIntVal = arr[i]
+            
             let nextIntVal = (currentIntVal + 1) % 10
             arr[i] = nextIntVal
             let stringArr = (arr.map {String($0) ?? "0"}).joined()
             children.append((stringArr, current.1 + 1))
             
-            var arr1 = currentCombination
-            let currentIntVal1 = arr1[i]
-            let prevIntVal = (currentIntVal1 - 1 + 10) % 10
-            arr1[i] = prevIntVal
-            let stringArr1 = (arr1.map {String($0) ?? "0"}).joined()
+            let prevIntVal = (currentIntVal - 1 + 10) % 10
+            arr[i] = prevIntVal
+            let stringArr1 = (arr.map {String($0) ?? "0"}).joined()
             children.append((stringArr1, current.1 + 1))
 
         }
