@@ -14,6 +14,9 @@ class Solution {
         if currentIndex >= nums.count {
             return false
         }
+        if nums[currentIndex] == 0 {
+            return false
+        }
         var canJump = false
         for i in 0..<nums[currentIndex] {
             canJump = canJump || canJumpHelper(nums, currentIndex + i + 1, &dp)
