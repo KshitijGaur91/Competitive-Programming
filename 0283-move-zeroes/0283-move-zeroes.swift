@@ -4,12 +4,13 @@ class Solution {
         var j = 0
         while j < nums.count {
             if nums[j] == 0 {
-                //j = j + 1
+                j = j + 1
             } else {
                 nums.swapAt(i, j)
                 i = i + 1
+                j = j + 1
             }
-            j = j + 1
+            
         }
     }
 }
