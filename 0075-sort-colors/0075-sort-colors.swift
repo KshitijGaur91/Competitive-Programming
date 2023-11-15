@@ -1,20 +1,22 @@
 class Solution {
     func sortColors(_ nums: inout [Int]) {
-        var low = 0
-        var mid = 0
-        var high = nums.count - 1
-        
-        while mid <= high {
+        var left = 0
+        var mid = 0 
+        var right = nums.count - 1
+        while mid <= right {
             if nums[mid] == 0 {
-                nums.swapAt(mid, low)
-                low += 1
+                nums.swapAt(left, mid)
+                left += 1
                 mid += 1
-            } else if nums[mid] == 2 {
-                nums.swapAt(mid, high)
-                high -= 1
+            } else if nums[mid] == 1 {
+                mid += 1
             } else {
-                mid += 1
+                nums.swapAt(mid, right)
+                right -= 1
             }
         }
     }
 }
+
+
+
