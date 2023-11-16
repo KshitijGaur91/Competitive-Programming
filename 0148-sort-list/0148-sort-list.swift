@@ -10,24 +10,23 @@
  */
 class Solution {
     func sortList(_ head: ListNode?) -> ListNode? {
-        return breakFromMiddle(head)
-    }
-    
-    func breakFromMiddle(_ head : ListNode?) ->  ListNode? {
         if head == nil || head?.next == nil {
             return head
-        } 
+        }
         var slow = head
-        var fast = head 
+        var fast = head
         var temp : ListNode?
-        while fast != nil, fast?.next != nil {
+        while fast != nil {
             temp = slow
             slow = slow?.next
             fast = fast?.next?.next
         }
+        
         temp?.next = nil
-        let l1 =  breakFromMiddle(head)
-        let l2 = breakFromMiddle(slow)
+        
+        let l1 = sortList(head)
+        let l2 = sortList(slow)
+        
         return sortMerge(l1, l2)
     }
     
