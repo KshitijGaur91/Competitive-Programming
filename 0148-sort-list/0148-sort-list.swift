@@ -10,7 +10,7 @@
  */
 class Solution {
     func sortList(_ head: ListNode?) -> ListNode? {
-        if head == nil || head?.next == nil {
+        if head?.next == nil {
             return head
         }
         var slow = head
