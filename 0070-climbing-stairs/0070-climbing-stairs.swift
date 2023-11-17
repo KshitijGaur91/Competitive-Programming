@@ -1,5 +1,16 @@
 class Solution {
     func climbStairs(_ n: Int) -> Int {
+        var i = 0
+        var j = 1
+        for _ in 0..<n {
+            let sum = i + j
+            i = j
+            j = sum
+        }
+        return j
+    }
+    /*
+    func climbStairs(_ n: Int) -> Int {
         var memo = [Int : Int]()
         return climbStairsHelper(n, &memo)
     }
@@ -14,4 +25,5 @@ class Solution {
         memo[n] = result
         return result
     }
+    */
 }
