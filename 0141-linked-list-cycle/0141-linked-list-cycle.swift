@@ -13,14 +13,12 @@
 class Solution {
     func hasCycle(_ head: ListNode?) -> Bool {
         var slow = head
-        var fast = head?.next
-        
-        while fast != nil {
+        var fast = head
+        while slow?.next != nil {
+            slow = slow?.next
+            fast = fast?.next?.next
             if slow === fast {
                 return true
-            } else {
-                slow = slow?.next
-                fast = fast?.next?.next
             }
         }
         return false
